@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000
 app.use(express.json({ extended: false })) //instead of bodyparser
 
 const conn = async () => {
-  await mongoose.connect(dbURI, {useUnifiedTopology: true, useNewUrlParser: true})
+  await mongoose.connect(dbURI, {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false})
   console.log('connected to db')
   app.listen(PORT, console.log(`server listening on port ${PORT}`))
 }
