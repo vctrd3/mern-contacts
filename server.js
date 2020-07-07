@@ -6,6 +6,9 @@ const app = express();
 const dbURI = keys.dbURI
 const PORT = process.env.PORT || 5000
 
+//middleware
+app.use(express.json({ extended: false })) //instead of bodyparser
+
 const conn = async () => {
   await mongoose.connect(dbURI, {useUnifiedTopology: true, useNewUrlParser: true})
   console.log('connected to db')
@@ -14,6 +17,7 @@ const conn = async () => {
 
 conn()
 
+//routes
 app.use('/api/users', require('./routes/users'))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/contacts', require('./routes/contacts'))
