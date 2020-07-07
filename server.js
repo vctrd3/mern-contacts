@@ -1,10 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
-// const usersRoutes = require('./routes/users')
-// const authRoutes = require('./routes/auth')
-// const contactsRoutes = require('./routes/contacts')
+
+const keys = require('./config/keys')
 const app = express();
-const dbURI = 'mongodb+srv://joeK:passwordjoeK@cluster0-j8o74.mongodb.net/contacts?retryWrites=true&w=majority'
+const dbURI = keys.dbURI
 const PORT = process.env.PORT || 5000
 
 const conn = async () => {
