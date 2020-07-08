@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 const contactSchema = new Schema({
-  user:{type: mongoose.Schema.Types.ObjectId},
+  user:{type: mongoose.Schema.Types.ObjectId, ref: 'users'},
   name: {type: String, required: true},
   email: {type: String, required: true},
   phone: {type: String},
